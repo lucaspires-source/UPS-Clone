@@ -1,16 +1,16 @@
-import { StatusBar } from 'expo-status-bar'
-import { Text, View } from 'react-native'
-import { TailwindProvider, useTailwind } from 'tailwind-rn'
+import { TailwindProvider } from 'tailwind-rn'
+import CustomersScreen from './screens/CustomersScreen'
 import utilities from './tailwind.json'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 export default function App() {
-const tailwind = useTailwind()
   return (
-    // @ts-ignore - TailwindProvider is missing type definitions
-    <TailwindProvider utilities={utilities}>
-      <View >
-        <Text style={tailwind('text-blue-600')}>Hello World</Text>
-      </View>
-    </TailwindProvider>
+    <NavigationContainer>
+      {/* @ts-ignore - TailwindProvider is missing type definitions */}
+      <TailwindProvider utilities={utilities}>
+        <Stack.Navigator>
+        </Stack.Navigator>
+      </TailwindProvider>
+    </NavigationContainer>
   )
 }
-

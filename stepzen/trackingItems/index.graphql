@@ -15,14 +15,14 @@ type TrackingItemsList {
 }
 
 type Query {
-  GetTrackingItemById(id: ID!): TrackingItems
-    @rest(
-      endpoint: "https://ups-clone-be5da-default-rtdb.firebaseio.com/trackingItems/$id.json"
-    )
-
   GetTrackingItems: [TrackingItemsList]
     @rest(
       endpoint: "https://ups-clone-be5da-default-rtdb.firebaseio.com/trackingItems.json"
       transforms: [{ pathpattern: [], editor: "objectToArray" }]
+    )
+
+  GetTrackingItemById(id: ID!): TrackingItems
+    @rest(
+      endpoint: "https://ups-clone-be5da-default-rtdb.firebaseio.com/trackingItems/$id.json"
     )
 }

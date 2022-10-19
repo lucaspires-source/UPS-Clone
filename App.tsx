@@ -5,7 +5,7 @@ import RootNavigator from './navigator/RootNavigator'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { REACT_APP_AUTH } from '@env'
 
-console.log(REACT_APP_AUTH)
+
 const client = new ApolloClient({
   uri: 'https://tapes.stepzen.net/api/good-llama/__graphql',
   cache: new InMemoryCache(),

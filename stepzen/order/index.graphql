@@ -16,7 +16,7 @@ type Order {
 
 type OrderList {
   name: ID
-  value: [Order]
+  value: Order
 }
 type Query {
   GetOrders: [OrderList]

@@ -46,6 +46,22 @@
   width: 100%
 }
 
+.flex-row {
+  flex-direction: row
+}
+
+.items-center {
+  align-items: center
+}
+
+.justify-end {
+  justify-content: flex-end
+}
+
+.justify-between {
+  justify-content: space-between
+}
+
 .rounded-lg {
   border-radius: 0.5rem
 }
@@ -76,10 +92,29 @@
   padding-bottom: 0px
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem
+}
+
+.font-bold {
+  font-weight: 700
+}
+
 .uppercase {
   text-transform: uppercase
 }
 
 .capitalize {
   text-transform: capitalize
+}
+
+.text-\[\#59c1cc\] {
+  --tw-text-opacity: 1;
+  color: rgb(89 193 204 / var(--tw-text-opacity))
 }

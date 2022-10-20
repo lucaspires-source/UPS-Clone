@@ -46,7 +46,7 @@ const CustomersScreen = () => {
         containerStyle={tw('bg-white pt-5 pb-0 px-10')}
       />
 
-      {data?.GetCustomers.map(
+      {data?.GetCustomers?.filter((customer:CustomerList) => customer.value.name.includes(input)).map(
         ({ name: ID, value: { email, name } }: CustomerResponse) => (
           <CustomerCard key={ID} email={email} name={name} userId={ID} />
         ),

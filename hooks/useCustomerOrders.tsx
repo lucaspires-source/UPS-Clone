@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { GET_ORDERS } from '../graphql/queries'
 const useCustomersOrders = (userId: string) => {
   const { data, loading, error } = useQuery(GET_ORDERS)
-  console.log(loading,data, error)
   const [orders, setOrders] = useState<Order[]>([])
   useEffect(() => {
     if (!data) return

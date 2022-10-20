@@ -5,7 +5,7 @@ type Customer = {
 
 type CustomerList = {
   email: ID
-  name: Customer
+  value: Customer
 }
 
 type TrackingItem = {

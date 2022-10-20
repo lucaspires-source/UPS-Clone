@@ -1,16 +1,29 @@
-import { StatusBar } from 'expo-status-bar'
-import { Text, View } from 'react-native'
-import { TailwindProvider, useTailwind } from 'tailwind-rn'
+import { TailwindProvider } from 'tailwind-rn'
 import utilities from './tailwind.json'
+import { NavigationContainer } from '@react-navigation/native'
+import RootNavigator from './navigator/RootNavigator'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { REACT_APP_AUTH } from '@env'
+
+
+const client = new ApolloClient({
+  uri: 'https://tapes.stepzen.net/api/good-llama/__graphql',
+  cache: new InMemoryCache(),
+  headers :{
+    authorization: REACT_APP_AUTH,
+  }
+
+})
+
 export default function App() {
-const tailwind = useTailwind()
   return (
-    // @ts-ignore - TailwindProvider is missing type definitions
-    <TailwindProvider utilities={utilities}>
-      <View >
-        <Text style={tailwind('text-blue-600')}>Hello World</Text>
-      </View>
-    </TailwindProvider>
+    <ApolloProvider client={client}>
+      <NavigationContainer>
+        {/* @ts-ignore - TailwindProvider is missing type definitions */}
+        <TailwindProvider utilities={utilities}>
+          <RootNavigator />
+        </TailwindProvider>
+      </NavigationContainer>
+    </ApolloProvider>
   )
 }
-

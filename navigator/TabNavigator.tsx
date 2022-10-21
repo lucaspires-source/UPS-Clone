@@ -7,6 +7,7 @@ import { Icon } from '@rneui/themed'
 export type TabStackParamsList = {
   Customers: undefined
   Orders: undefined
+  Modal: any
 }
 
 const Tab = createBottomTabNavigator()

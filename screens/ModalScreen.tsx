@@ -45,11 +45,11 @@ const ModalScreen = () => {
           <Text style={tw('text-center text-xl font-bold text-[#59c1cc]')}>
             {name}
           </Text>
-          <Text style={tw("text-center italic text-sm texte-sm")}>Deliveries</Text>
+          <Text style={tw("text-center italic text-sm text-sm")}>Deliveries</Text>
         </View>
       </View>
       <FlatList
-        contentContainerStyle={tw("pb-50")}
+        contentContainerStyle={tw("pb-48")}
         data={orders}
         keyExtractor={(order) => order.trackingId}
         renderItem={({ item: order }) => <DeliveryCard order={order} />}

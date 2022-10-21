@@ -175,6 +175,16 @@
 			"paddingBottom": 0
 		}
 	},
+	"pb-52": {
+		"style": {
+			"paddingBottom": 208
+		}
+	},
+	"pb-48": {
+		"style": {
+			"paddingBottom": 192
+		}
+	},
 	"text-center": {
 		"style": {
 			"textAlign": "center"

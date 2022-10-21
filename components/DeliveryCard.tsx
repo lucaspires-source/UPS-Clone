@@ -3,14 +3,13 @@ import React from 'react'
 import { Card, Icon } from '@rneui/themed'
 import { useTailwind } from 'tailwind-rn/dist'
 import { Divider } from '@rneui/base'
-
+import Mapview, { Marker } from 'react-native-maps'
 type Props = {
   order: Order
 }
 
 const DeliveryCard = ({ order }: Props) => {
   const tw = useTailwind()
-  console.log(order)
   return (
     <Card
       containerStyle={[
@@ -25,7 +24,7 @@ const DeliveryCard = ({ order }: Props) => {
     >
       <View>
         <Icon name="box" type="entypo" color="white" size={50} />
-        <View>
+        <View >
           <Text
             style={tw(
               'text-xs text-center uppercase font-bold uppercase text-white font-bold',
@@ -38,7 +37,7 @@ const DeliveryCard = ({ order }: Props) => {
           </Text>
           <Divider color="white" />
         </View>
-        <View style={tw('mx-auto')}>
+        <View style={tw('mx-auto pb-5')}>
           <Text style={tw(' text-base text-white font-bold text-center mt-5')}>
             Address
           </Text>
@@ -51,7 +50,7 @@ const DeliveryCard = ({ order }: Props) => {
         </View>
       </View>
       <Divider color="white" />
-      <View style={tw("p-5")}>
+      <View style={tw('p-5')}>
         {order.trackingItems.items.map((item) => (
           <View style={tw('flex-row justify-between items-center')}>
             <Text style={tw('text-sm italic text-white')}>{item.name}</Text>
@@ -59,6 +58,24 @@ const DeliveryCard = ({ order }: Props) => {
           </View>
         ))}
       </View>
+      <Mapview
+        initialRegion={{
+          latitude: order.Lat,
+          longitude: order.Lng,
+          latitudeDelta: 0.005,
+          longitudeDelta: 0.005,
+        }}
+        style={[tw('w-full'), { height: 200 }]}
+      >
+        {order.Lat && order.Lng && (
+          <Marker
+            coordinate={{ latitude: order.Lat, longitude: order.Lng }}
+            title="Delivery Location"
+            description={order.Address}
+            identifier="destination"
+          />
+        )}
+      </Mapview>
     </Card>
   )
 }

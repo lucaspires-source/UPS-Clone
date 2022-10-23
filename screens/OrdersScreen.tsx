@@ -54,7 +54,7 @@ const OrdersScreen = () => {
         {orders
           ?.sort((a, b) => {
             if (ascending) {
-              return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1
+              return new Date(a.createdAt) > new Date(b.createdAt) ? 1 : -1
             } else {
               return new Date(a.createdAt) < new Date(b.createdAt) ? 1 : -1
             }
